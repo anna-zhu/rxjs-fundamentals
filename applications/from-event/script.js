@@ -1,11 +1,11 @@
 import { fromEvent } from 'rxjs';
 
-const button = document.getElementById('create-notification');
+const createNotificationButton = document.getElementById('create-notification');
 const notificationMessages = document.getElementById('notification-messages');
 
 const createNotificationElement = () => {
   const element = document.createElement('article');
-  element.innerText = 'Something happened.';
+  element.innerText = 'Adding a new notification.';
   return element;
 };
 
@@ -22,3 +22,6 @@ const addMessageToDOM = () => {
  * - Use `addMessageToDOM` to add a useless message to the DOM whenever the
  *   stream emits a value.
  */
+
+const createNotification$ = fromEvent(createNotificationButton, 'click');
+createNotification$.subscribe(addMessageToDOM);
